@@ -4,39 +4,133 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Blog</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    @keyframes backgroundRotate {
+        0% { background-image: url('pic2.jpeg'); }
+        60% { background-image: url('animation1.jpg'); }
+        90% { background-image: url('animation2.jpg'); }
+       
+    }
+    
+    body {
+      animation: backgroundRotate 21s infinite;
+      background-size: contain; /* or use a smaller percentage or fixed size */
+      background-position: center top; /* change as needed */
+      background-repeat: no-repeat;
+      background-attachment: fixed; /* keeps background in place while scrolling */
+      transition: background-image 1s ease-in-out;
+  }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    height: 100vh;
+    padding-top: 20px;
+    position: fixed;
+}
+.sidebar a {
+    padding: 10px 20px;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+.sidebar a:hover {
+    background: #34495e;
+}
+.dropdown-btn {
+    background: none;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+.dropdown-container {
+    display: none;
+    background: #34495e;
+    padding-left: 20px;
+}
+.content {
+    margin-left: 260px;
+    padding: 20px;
+    flex: 1;
+}
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+}
+footer a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+footer p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+</style>
 </head>
-<body>
-  <header>
-    <h1>My Blog</h1>
-    <nav>
-      <button id="menu-toggle">☰</button>
-      <ul id="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<body style="background-color: #add8e6;">
+<div class="sidebar">
+<a href="#">Home</a>
+<button class="dropdown-btn">ABOUT &#9662;</button>
+<div class="dropdown-container">
+    
+    <a href="blog.html">BLOG</a>
+</div>
 
+<a href="contact.html">Contact</a>
+</div>
+<div class="content">
   <main>
-    <section class="posts">
-      <article>
-        <h2>Welcome to My Blog</h2>
-        <p>This is a short intro to my first blog post.</p>
-        <a href="post1.html">Read more →</a>
-      </article>
-      <article>
-        <h2>More Posts Coming Soon</h2>
-        <p>Stay tuned for more awesome content!</p>
-      </article>
-    </section>
-  </main>
+  <section class="posts">
+    <article>
+      <h2>Welcome to My Blog page</h2>
+      <p> A short intro to my first blog post.</p>
+      <a href="post1.html">Read more →</a>
+    </article>
+    <article>
+      <h2>More Posts Coming Soon</h2>
+      <p>Stay tuned for more awesome content!</p>
+    </article>
+  </section>
+</main>
 
-  <footer>
-    <p>&copy; 2025 My Blog. All rights reserved.</p>
-  </footer>
-
-  <script src="js/script.js"></script>
+</div>
+<footer>
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+<a href="contact.html">Support</a>
+<a href="#">About Us</a>
+<a href="#">Careers</a>
+<a href="#">Blog</a>
+<p>&copy; 2025 Detective Blog. All rights reserved.</p>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let dropdownBtns = document.querySelectorAll(".dropdown-btn");
+    dropdownBtns.forEach(btn => {
+        btn.addEventListener("click", function () {
+            let dropdownContent = this.nextElementSibling;
+            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+        });
+    });
+});
+</script>
+<script src="js/script.js"></script>
 </body>
 </html>
+
+  
+ 
